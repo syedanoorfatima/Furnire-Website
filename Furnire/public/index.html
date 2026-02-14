@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniro - Modern Furniture Store</title>
+    <!-- Bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <!-- Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" href="assets/image/logo.png" type="image/png">
+    <style>
+        /* Base styles (Mobile First) */
+        :root {
+            --primary-color: #B88E2F;
+            --secondary-color: #FFF3E3;
+            --dark-color: #333333;
+            --light-gray: #D9D9D9;
+            --light-bg: #FCF8F3;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            overflow-x: hidden;
+        }
+
+        .furniro-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .furniro-brand img {
+            height: 30px;
+        }
+
+        .navbar {
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 0;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color);
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .navbar-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .navbar-icon {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            transition: color 0.3s;
+        }
+
+        .navbar-icon:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-image: url('assest/image/1furniture.png');
+            height: 100vh;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero-content {
+            background-color: rgba(255, 243, 227, 0.9);
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text {
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #9a7829;
+            transform: translateY(-2px);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+
+        /* Product Cards */
+        .product-card {
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+
+        .overlay-btn {
+            background-color: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+
+        .overlay-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .overlay-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .overlay-link {
+            color: white;
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .overlay-link i {
+            margin-right: 0.5rem;
+        }
+
+        /* Inspiration Section */
+        .inspiration-section {
+            background-color: var(--light-bg);
+            padding: 4rem 0;
+            margin-top: 4rem;
+        }
+
+        .inspiration-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .inspiration-text {
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .inspiration-img {
+            border-radius: 8px;
+            overflow: hidden;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        /* Gallery Section */
+        .gallery-title {
+            font-weight: 600;
+            text-align: center;
+            margin: 4rem 0 1rem;
+        }
+
+        .gallery-hashtag {
+            font-weight: 700;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f8f9fa;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-link {
+            color: var(--dark-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+
+        .newsletter-input {
+            border: 1px solid #ddd;
+            padding: 0.5rem 1rem;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+        }
+
+        .copyright {
+            padding: 1.5rem 0;
+            border-top: 1px solid #eee;
+            margin-top: 2rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 99;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #9a7829;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-content {
+                position: static;
+                transform: none;
+                max-width: 100%;
+                margin: 2rem auto;
+            }
+
+            .navbar-collapse {
+                padding: 1rem 0;
+            }
+
+            .navbar-icons {
+                justify-content: center;
+                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .inspiration-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-section {
+                height: auto;
+                padding: 2rem 0;
+            }
+
+            .hero-content {
+                padding: 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script type='text/javascript' src='//pl27553251.revenuecpmgate.com/17/f5/04/17f504a0329548e90fe14b240cfc4420.js'></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assest/image/logo.png" alt="Furniro Logo">
+                Furniro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="navbar-icons">
+                    <a href="account.html"><i class="fas fa-user icon"></i></a>
+                    <a href="search.html"><i class="fas fa-search icon"></i></a>
+                    <a href="wishlist.html"><i class="fas fa-heart icon"></i></a>
+                    <a href="cart.html"><i class="fas fa-shopping-cart icon"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script async="async" data-cfasync="false" src="//pl27553268.revenuecpmgate.com/2d8a5ce6cd78b37a8e6c0444fe227833/invoke.js"></script>
+<div id="container-2d8a5ce6cd78b37a8e6c0444fe227833"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <div class="hero-subtitle">New Arrival</div>
+                        <h1 class="hero-title">Discover Our New Collection</h1>
+                        <p class="hero-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                            luctus nec ullamcorper mattis.</p>
+                        <button class="btn btn-primary-custom">BUY NOW</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+	atOptions = {
+		'key' : '2f8d5e4027fd244cfbdde52eade1cb3c',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/2f8d5e4027fd244cfbdde52eade1cb3c/invoke.js"></script>
+
+    <!-- Browse Range Section -->
+    <section class="container py-5">
+        <div class="text-center">
+            <h2 class="section-title">Browse The Range</h2>
+            <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="assest/image/2furniture.png" alt="Dining" class="product-img">
+                    <div class="product-info text-center">
+                        <h3 class="product-name">Dining</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="assest/image/3furniture.png" alt="Living" class="product-img">
+                    <div class="product-info text-center">
+                        <h3 class="product-name">Living</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="assest/image/4furniture.png" alt="Bedroom" class="product-img">
+                    <div class="product-info text-center">
+                        <h3 class="product-name">Bedroom</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+	atOptions = {
+		'key' : '2f8d5e4027fd244cfbdde52eade1cb3c',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/2f8d5e4027fd244cfbdde52eade1cb3c/invoke.js"></script>
+
+    <!-- Products Section -->
+    <section class="container py-5">
+        <div class="text-center">
+            <h2 class="section-title">Our Products</h2>
+        </div>
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="product-card">
+                    <img src="assest/image/product1.png" alt="Syltherine" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">Syltherine</h3>
+                        <p>Stylish cafe chair</p>
+                        <p class="product-price">Rp 2.500.000</p>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="overlay-btn">Add to Cart</button>
+                        <div class="overlay-links">
+                            <a href="#" class="overlay-link"><i class="bi bi-share"></i>Share</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-arrow-left-right"></i>Compare</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-heart"></i>Like</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+	atOptions = {
+		'key' : '2f8d5e4027fd244cfbdde52eade1cb3c',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/2f8d5e4027fd244cfbdde52eade1cb3c/invoke.js"></script>
+
+            <!-- Product 2 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="product-card">
+                    <img src="assest/image/product2 (2).png" alt="Leviosa" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">Leviosa</h3>
+                        <p>Stylish cafe chair</p>
+                        <p class="product-price">Rp 2.500.000</p>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="overlay-btn">Add to Cart</button>
+                        <div class="overlay-links">
+                            <a href="#" class="overlay-link"><i class="bi bi-share"></i>Share</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-arrow-left-right"></i>Compare</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-heart"></i>Like</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <!-- Product 3 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="product-card">
+                    <img src="assest/image/product3.png" alt="Lolito" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">Lolito</h3>
+                        <p>Luxury big sofa</p>
+                        <p class="product-price">Rp 500.000</p>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="overlay-btn">Add to Cart</button>
+                        <div class="overlay-links">
+                            <a href="#" class="overlay-link"><i class="bi bi-share"></i>Share</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-arrow-left-right"></i>Compare</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-heart"></i>Like</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="product-card">
+                    <img src="assest/image/product4.png" alt="Respira" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">Respira</h3>
+                        <p>Outdoor bar table and stool</p>
+                        <p class="product-price">Rp 500.000</p>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="overlay-btn">Add to Cart</button>
+                        <div class="overlay-links">
+                            <a href="#" class="overlay-link"><i class="bi bi-share"></i>Share</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-arrow-left-right"></i>Compare</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-heart"></i>Like</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <!-- Second Row of Products -->
+        <div class="row mt-4">
+            <!-- Product 5 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="product-card">
+                    <img src="assest/image/product5.png" alt="Grifo" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">Grifo</h3>
+                        <p>Night lamp</p>
+                        <p class="product-price">Rp 1.500.000</p>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="overlay-btn">Add to Cart</button>
+                        <div class="overlay-links">
+                            <a href="#" class="overlay-link"><i class="bi bi-share"></i>Share</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-arrow-left-right"></i>Compare</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-heart"></i>Like</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Product 6 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="product-card">
+                    <img src="assest/image/product6.png" alt="Muggo" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">Muggo</h3>
+                        <p>Small mug</p>
+                        <p class="product-price">Rp 150.000</p>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="overlay-btn">Add to Cart</button>
+                        <div class="overlay-links">
+                            <a href="#" class="overlay-link"><i class="bi bi-share"></i>Share</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-arrow-left-right"></i>Compare</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-heart"></i>Like</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '2f8d5e4027fd244cfbdde52eade1cb3c',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/2f8d5e4027fd244cfbdde52eade1cb3c/invoke.js"></script>
+            <!-- Product 7 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="product-card">
+                    <img src="assest/image/product7.png" alt="Pingky" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">Pingky</h3>
+                        <p>Cute bed set</p>
+                        <p class="product-price">Rp 7.000.000</p>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="overlay-btn">Add to Cart</button>
+                        <div class="overlay-links">
+                            <a href="#" class="overlay-link"><i class="bi bi-share"></i>Share</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-arrow-left-right"></i>Compare</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-heart"></i>Like</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="product-card">
+                    <img src="assest/image/product8.png" alt="Potty" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-name">Potty</h3>
+                        <p>Minimalist flower pot</p>
+                        <p class="product-price">Rp 5.000.000</p>
+                    </div>
+                    <div class="product-overlay">
+                        <button class="overlay-btn">Add to Cart</button>
+                        <div class="overlay-links">
+                            <a href="#" class="overlay-link"><i class="bi bi-share"></i>Share</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-arrow-left-right"></i>Compare</a>
+                            <a href="#" class="overlay-link"><i class="bi bi-heart"></i>Like</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <button class="btn btn-outline-primary px-5 py-2">Show More</button>
+        </div>
+    </section>
+    
+
+    <!-- Inspiration Section -->
+    <section class="inspiration-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h2 class="inspiration-title">50+ Beautiful rooms inspiration</h2>
+                    <p class="inspiration-text">Our designer already made a lot of beautiful prototipe of rooms that
+                        inspire you</p>
+                    <button class="btn btn-primary-custom">Explore More</button>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <img src="assest/image/product9.png" alt="Room Inspiration 1" class="inspiration-img w-100">
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <img src="assest/image/product10.png" alt="Room Inspiration 2" class="inspiration-img w-100">
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+	atOptions = {
+		'key' : '2f8d5e4027fd244cfbdde52eade1cb3c',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/2f8d5e4027fd244cfbdde52eade1cb3c/invoke.js"></script>
+
+    <!-- Gallery Section -->
+    <section class="container py-5">
+        <h3 class="gallery-title">Share your setup with</h3>
+        <h4 class="gallery-hashtag">#FuniroFurniture</h4>
+        <div class="gallery-grid">
+            <img src="assest/image/product12.png" alt="Gallery Image 1" class="gallery-img">
+            <img src="assest/image/product13.png" alt="Gallery Image 2" class="gallery-img">
+            <img src="assest/image/product14.png" alt="Gallery Image 3" class="gallery-img">
+            <img src="assest/image/product15.png" alt="Gallery Image 4" class="gallery-img">
+            <img src="assest/image/product16.png" alt="Gallery Image 5" class="gallery-img">
+            <img src="assest/image/product17.png" alt="Gallery Image 6" class="gallery-img">
+            <img src="assest/image/product18.png" alt="Gallery Image 7" class="gallery-img">
+            <img src="assest/image/product19.png" alt="Gallery Image 8" class="gallery-img">
+            <img src="assest/image/product20.png" alt="Gallery Image 9" class="gallery-img">
+            <img src="assest/image/product10.png" alt="Gallery Image 3" class="gallery-img">
+            <img src="assest/image/product9.png" alt="Gallery Image 3" class="gallery-img">
+            <img src="assest/image/product8.png" alt="Gallery Image 3" class="gallery-img">
+        </div>
+    </section>
+    
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h3 class="footer-title">Furniro.</h3>
+                    <p>400 University Drive Suite 200 Coral Gables,<br>FL 33134 USA</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4 class="mb-4">Links</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Home</a>
+                        <a href="#" class="footer-link">Shop</a>
+                        <a href="#" class="footer-link">About</a>
+                        <a href="#" class="footer-link">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4 class="mb-4">Help</h4>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Payment Options</a>
+                        <a href="#" class="footer-link">Returns</a>
+                        <a href="#" class="footer-link">Privacy Policies</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h4 class="mb-4">Newsletter</h4>
+                    <form class="d-flex">
+                        <input type="email" class="form-control newsletter-input"
+                            placeholder="Enter Your Email Address">
+                        <button type="submit" class="btn newsletter-btn">SUBSCRIBE</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright text-center">
+                <p>2023 furnino. All rights reverved</p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+	atOptions = {
+		'key' : '2f8d5e4027fd244cfbdde52eade1cb3c',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/2f8d5e4027fd244cfbdde52eade1cb3c/invoke.js"></script>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom JS -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Product card hover effect for touch devices
+        if ('ontouchstart' in window) {
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.addEventListener('click', function () {
+                    this.classList.toggle('hover');
+                });
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+	atOptions = {
+		'key' : '2f8d5e4027fd244cfbdde52eade1cb3c',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/2f8d5e4027fd244cfbdde52eade1cb3c/invoke.js"></script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDtm7szfYVeQbGg01P3JfvishQvMb1apJg",
+            authDomain: "furniro-26fd7.firebaseapp.com",
+            projectId: "furniro-26fd7",
+            storageBucket: "furniro-26fd7.firebasestorage.app",
+            messagingSenderId: "176943718238",
+            appId: "1:176943718238:web:15197701b94b2df4a739cf",
+            measurementId: "G-PTWQJ91W84"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
+    <script type="text/javascript">
+	atOptions = {
+		'key' : '2f8d5e4027fd244cfbdde52eade1cb3c',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/2f8d5e4027fd244cfbdde52eade1cb3c/invoke.js"></script>
+    <script type='text/javascript' src='//pl27553219.revenuecpmgate.com/9a/44/cb/9a44cba6cab50ac44e623c1d91f7f357.js'></script>
+
+</body>
+
+</html>

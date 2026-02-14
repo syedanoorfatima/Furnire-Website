@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Furniro</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #b88e2f;
+            --gray-color: #777;
+            --border-color: #ccc;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff;
+            color: #111;
+        }
+
+        .contact-section {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-header h2 {
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .contact-header p {
+            color: var(--gray-color);
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .info-item {
+            margin-bottom: 30px;
+        }
+
+        .info-item i {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+
+        .info-item h4 {
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .info-item p {
+            color: #555;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-form label {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .contact-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #9a7829;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+
+        :root {
+            --primary-color: #B88E2F;
+            --secondary-color: #FFF3E3;
+            --dark-color: #333;
+            --light-gray: #F9F1E7;
+            --border-color: #9F9F9F;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-color);
+        }
+
+        /* Header/Navbar */
+        .navbar {
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color);
+            margin: 0 10px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .navbar-icons .icon {
+            font-size: 18px;
+            margin-left: 15px;
+            color: var(--dark-color);
+            transition: all 0.3s;
+        }
+
+        .navbar-icons .icon:hover {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: transparent;
+            padding: 15px 0;
+            margin-bottom: 0;
+        }
+
+        .breadcrumb-item a {
+            color: var(--dark-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb-item.active {
+            color: var(--primary-color);
+        }
+
+
+        /* Features Section */
+        .features {
+            background-color: var(--light-gray);
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f8f8f8;
+            padding: 60px 0 20px;
+        }
+
+        .footer-title {
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--dark-color);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #9a7829;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+        }
+
+        .bg_image {
+            background-image: url(assest/image/Rectangle\ 1.png);
+            background-position: center;
+            background-size: cover;
+            height: 50vh;
+
+        }
+
+        .top_margine {
+            margin-top: 7rem;
+            font-weight: 700;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .shop-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+
+            .filter-section {
+                gap: 10px;
+            }
+
+            .feature-item {
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-img {
+                height: 200px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="assest/image/logo.png" alt="Furniro Logo">
+                Furniro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="navbar-icons">
+                    <a href="account.html"><i class="fas fa-user icon"></i></a>
+                    <a href="search.html"><i class="fas fa-search icon"></i></a>
+                    <a href="wishlist.html"><i class="fas fa-heart icon"></i></a>
+                    <a href="cart.html"><i class="fas fa-shopping-cart icon"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container bg_image">
+        <nav aria-label="breadcrumb d-flex justify-content-center mt-5">
+
+            <ol class="breadcrumb d-flex justify-content-center ">
+                <div>
+                    <div class="top_margine">
+                        <h2>Contact</h2>
+                    </div>
+                    <div class="d-flex">
+                        <li class="breadcrumb-item "><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active " aria-current="page">Contact</li>
+                    </div>
+                </div>
+
+
+            </ol>
+        </nav>
+    </div>
+
+    <section class="contact-section">
+        <div class="contact-header">
+            <h2>Get In Touch With Us</h2>
+            <p>For More Information About Our Product & Services. Please Feel Free To Drop Us An Email. Our Staff Always
+                Be There To Help You Out. Do Not Hesitate!</p>
+        </div>
+
+        <div class="contact-container">
+            <!-- Left Info Panel -->
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-location-dot"></i>
+                    <div>
+                        <h4>Address</h4>
+                        <p>236 5th SE Avenue, New York NY10000, United States</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>Mobile: +(84) 546-6789<br>Hotline: +(84) 456-6789</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Working Time</h4>
+                        <p>Monday–Friday: 9:00 - 22:00<br>Saturday–Sunday: 9:00 - 21:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Form -->
+            <div class="contact-form">
+                <form>
+                    <label for="name">Your name</label>
+                    <input type="text" id="name" placeholder="Abc">
+
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" placeholder="Abc@def.com">
+
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" placeholder="This is an optional">
+
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Hi! I'd like to ask about"></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h4 class="feature-title">High Quality</h4>
+                        <p class="feature-desc">crafted from top materials</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="feature-title">Warranty Protection</h4>
+                        <p class="feature-desc">Over 2 years</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h4 class="feature-title">Free Shipping</h4>
+                        <p class="feature-desc">Order over 150 $</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4 class="feature-title">24 / 7 Support</h4>
+                        <p class="feature-desc">Dedicated support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h3 class="footer-title">Funiro</h3>
+                    <p>400 University Drive Suite 200 Coral Gables,<br>FL 33134 USA</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4 class="mb-4">Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4 class="mb-4">Help</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Payment Options</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policies</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h4 class="mb-4">Newsletter</h4>
+                    <form>
+                        <input type="email" class="newsletter-input" placeholder="Enter Your Email Address">
+                        <button type="submit" class="newsletter-btn">SUBSCRIBE</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>2023 furnino. All rights reverved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,0 +1,159 @@
+.furniro_font {
+    font-family: "Montserrat";
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+* {
+    font-family: "Montserrat";
+}
+
+.bg_img_2 {
+    background-image: url(../images/1furniture.png);
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+
+/* Navbar */
+.navbar_font {
+    font-weight: 600;
+    margin-left: 12rem;
+}
+
+.margin_navbar_icons {
+    margin-left: 12rem;
+}
+
+.navbar_icon {
+    font-size: 1.5rem;
+}
+
+
+/* Row 2 */
+.div_clr_2 {
+    background-color: #FFF3E3;
+}
+
+.discover_text_size {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #B88E2F;
+}
+
+.bold_font_2 {
+    font-weight: 700;
+}
+
+.bg_color_2 {
+    background-color: #B88E2F;
+    border: none;
+}
+
+.div_2_margin {
+    margin-top: 1rem;
+}
+
+
+
+/* Row 3 */
+.margin_rang_3 {
+    margin-left: 31rem;
+    margin-right: 31rem;
+}
+
+.lorem_margin_3 {
+    margin-left: 27rem;
+}
+
+/* Row 4 */
+.dining_bold {
+    font-weight: 600;
+    margin-left: 9rem;
+    margin-right: 9rem;
+    margin-top: 2rem;
+}
+
+.cart {
+    background-color: rgba(58, 58, 58, 0.7);
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/* Row 6 */
+.bg-color_6 {
+    background-color: #D9D9D9;
+}
+
+.text_clr {
+    font-weight: 700;
+}
+
+.overlay_black {
+    font-weight: 700;
+}
+
+.add_to_cart {
+    color: #B88E2F;
+    font-weight: 700;
+    background-color: white;
+    border-color: #B88E2F;
+}
+
+/* Row 8 */
+.btn_8 {
+    color: #B88E2F;
+    font-weight: 700;
+    background-color: white;
+    border-color: #B88E2F;
+    margin-left: 32rem;
+    margin-right: 32rem;
+}
+
+/* Row 9 */
+.product_clr_9 {
+    background-color: #FCF8F3;
+    margin-top: 6rem;
+}
+
+.beautiful_rooms {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #B88E2F;
+}
+
+.text_9 {
+    font-weight: 700;
+}
+
+.explore_btn_9 {
+    background-color: #B88E2F;
+    border: none;
+}
+
+.margin_9 {
+    margin-top: 10rem;
+    margin-left: 2rem;
+}
+
+/* Row 10 */
+.setup_10 {
+    font-weight: 700;
+    margin-left: 32rem;
+    margin-right: 32rem;
+}
+
+.furniture_10 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-left: 30rem;
+    margin-right: 30rem;
+}
+
+/* Footer row */
+.footer_furniro {
+    font-family: "Montserrat";
+    font-size: 2rem;
+    font-weight: 700;
+}

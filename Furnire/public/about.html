@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Furniro</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* About Page CSS */
+        :root {
+            --primary-color: #B88E2F;
+            --secondary-color: #FFF3E3;
+            --dark-color: #333;
+            --light-gray: #F9F1E7;
+            --border-color: #9F9F9F;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color);
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .navbar-icons .icon {
+            font-size: 18px;
+            margin-left: 15px;
+            color: var(--dark-color);
+            transition: all 0.3s;
+        }
+
+        .navbar-icons .icon:hover {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .bg_image {
+            background-image: url(assest/image/Rectangle\ 1.png);
+            background-position: center;
+            background-size: cover;
+            height: 50vh;
+
+        }
+
+        .top_margine {
+            margin-top: 7rem;
+            font-weight: 700;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+        }
+
+        .about-hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb {
+            background-color: transparent;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .breadcrumb-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb-item.active {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb-item+.breadcrumb-item::before {
+            color: white;
+        }
+
+        /* About Content */
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s;
+        }
+
+        .about-image:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Our Values */
+        .values-section {
+            background-color: var(--light-gray);
+            padding: 80px 0;
+        }
+
+        .value-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+        }
+
+        .team-card {
+            text-align: center;
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid var(--secondary-color);
+            transition: border-color 0.3s;
+        }
+
+        .team-card:hover .team-image {
+            border-color: var(--primary-color);
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .team-position {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .team-social a {
+            color: var(--dark-color);
+            font-size: 1.2rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .team-social a:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Testimonials */
+        .testimonial-section {
+            background-color: var(--secondary-color);
+            padding: 80px 0;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 15px;
+            transition: transform 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 30px;
+            color: #555;
+        }
+
+        .testimonial-text::before {
+            content: '\201C';
+            font-size: 4rem;
+            color: var(--primary-color);
+            position: absolute;
+            left: -15px;
+            top: -20px;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid var(--primary-color);
+        }
+
+        .author-name {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: var(--dark-color);
+        }
+
+        .author-position {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #f8f8f8;
+            padding: 60px 0 20px;
+        }
+
+        .footer-title {
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--dark-color);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: border-color 0.3s;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .newsletter-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #9a7829;
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+            color: #777;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .about-hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .team-image {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                height: 300px;
+            }
+
+            .about-hero-title {
+                font-size: 2rem;
+            }
+
+            .about-section,
+            .values-section,
+            .team-section,
+            .testimonial-section {
+                padding: 60px 0;
+            }
+
+            .about-content {
+                text-align: center;
+            }
+
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .team-image {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-hero {
+                height: 250px;
+            }
+
+            .about-hero-title {
+                font-size: 1.8rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+
+            .navbar-brand img {
+                height: 25px;
+            }
+
+            .value-card {
+                padding: 20px;
+            }
+
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .testimonial-author img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assest/image/logo.png" alt="Furniro Logo">
+                Furniro
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="navbar-icons">
+                    <a href="account.html"><i class="fas fa-user icon"></i></a>
+                    <a href="search.html"><i class="fas fa-search icon"></i></a>
+                    <a href="wishlist.html"><i class="fas fa-heart icon"></i></a>
+                    <a href="cart.html"><i class="fas fa-shopping-cart icon"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container bg_image">
+        <nav aria-label="breadcrumb d-flex justify-content-center mt-5">
+
+            <ol class="breadcrumb d-flex justify-content-center ">
+                <div>
+                    <div class="top_margine">
+                        <h2>About</h2>
+                    </div>
+                    <div class="d-flex">
+                        <li class="breadcrumb-item "><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active " aria-current="page">About</li>
+                    </div>
+                </div>
+
+
+            </ol>
+        </nav>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title">Our Story</h2>
+                    <p class="about-text">Founded in 2010, Furniro began as a small workshop with a big dream - to
+                        create beautiful, high-quality furniture that transforms houses into homes. What started as a
+                        passion project between two friends has grown into a trusted brand known for craftsmanship and
+                        design excellence.</p>
+                    <p class="about-text">Today, we're proud to serve customers across the country with our curated
+                        collection of furniture and home accessories. Each piece in our collection is thoughtfully
+                        designed to combine functionality with timeless style.</p>
+                    <p class="about-text">We believe that great furniture should be accessible to everyone, which is why
+                        we work directly with artisans and manufacturers to bring you exceptional quality at fair
+                        prices.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-image">
+                        <img src="assest/image/istockphoto-1285065780-612x612.jpg" alt="Our Story">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our Values</h2>
+                <p class="lead">The principles that guide everything we do</p>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="value-title">Sustainability</h3>
+                        <p>We're committed to sustainable practices, using responsibly sourced materials and
+                            eco-friendly production methods to minimize our environmental impact.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3 class="value-title">Craftsmanship</h3>
+                        <p>Each piece is crafted with attention to detail and built to last. We partner with skilled
+                            artisans who take pride in their work.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="value-title">Customer Care</h3>
+                        <p>Your satisfaction is our priority. From design to delivery, we're dedicated to providing
+                            exceptional service at every step.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Meet Our Team</h2>
+                <p class="lead">The creative minds behind Furniro</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="assest/image/sarah" alt="Sarah Johnson">
+                        </div>
+                        <h4 class="team-name">Sarah Johnson</h4>
+                        <p class="team-position">Founder & CEO</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="assest/image/45281b_c4363a6b9fad4d348378989dca653f90~mv2.avif" alt="Michael Chen">
+                        </div>
+                        <h4 class="team-name">Michael Chen</h4>
+                        <p class="team-position">Head Designer</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="assest/image/rodriguez-ayala_emma_4912x7360.a2.jpg" alt="Emma Rodriguez">
+                        </div>
+                        <h4 class="team-name">Emma Rodriguez</h4>
+                        <p class="team-position">Operations Manager</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="assest/image/David-Kim-640x420.webp" alt="David Kim">
+                        </div>
+                        <h4 class="team-name">David Kim</h4>
+                        <p class="team-position">Customer Experience</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">What Our Customers Say</h2>
+                <p class="lead">Hear from people who love our products</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">The quality of Furniro's furniture exceeded my expectations. The
+                            dining table we purchased has become the centerpiece of our home and gets compliments from
+                            everyone who visits.</p>
+                        <div class="testimonial-author">
+                            <img src="assest/image/images.jpeg" alt="Jessica Parker">
+                            <div>
+                                <h5 class="author-name">Jessica Parker</h5>
+                                <p class="author-position">Homeowner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">As an interior designer, I frequently source furniture for my
+                            clients. Furniro is my go-to for quality pieces that combine style and functionality at
+                            reasonable prices.</p>
+                        <div class="testimonial-author">
+                            <img src="assest/image/7I6MLKRFKNA3FNRISCGAFYT4UQ.jpg" alt="Robert Chen">
+                            <div>
+                                <h5 class="author-name">Robert Chen</h5>
+                                <p class="author-position">Interior Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">The customer service at Furniro is outstanding. When I had questions
+                            about assembly, their team walked me through every step patiently. Will definitely shop here
+                            again!</p>
+                        <div class="testimonial-author">
+                            <img src="assest/image/download.jpeg" alt="Maria Gonzalez">
+                            <div>
+                                <h5 class="author-name">Maria Gonzalez</h5>
+                                <p class="author-position">Satisfied Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h3 class="footer-title">Furniro.</h3>
+                    <p>400 University Drive Suite 200 Coral Gables,<br>FL 33134 USA</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4 class="mb-4">Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4 class="mb-4">Help</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Payment Options</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policies</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h4 class="mb-4">Newsletter</h4>
+                    <form>
+                        <input type="email" class="newsletter-input" placeholder="Enter Your Email Address">
+                        <button type="submit" class="newsletter-btn">SUBSCRIBE</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>2023 furnino. All rights reverved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
