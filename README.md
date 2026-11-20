@@ -2,6 +2,12 @@
 
 Furnire is a furniture website concept focused on presenting home and living furniture in a clean, welcoming online experience. The project is intended to showcase furniture collections and modern web presentation.
 
+
+## 🌐 Live Demo
+
+No public demo URL is currently listed for this repository. Add your deployment URL here when it is ready.
+
+
 ## ✨ Project Highlights
 
 - Furniture-focused website experience
@@ -38,3 +44,8 @@ Furnire is a furniture website concept focused on presenting home and living fur
 **Syeda Noor Fatima**
 
 [GitHub Profile](https://github.com/syedanoorfatima) · [LinkedIn](https://www.linkedin.com/in/syeda-noor-fatima-webdeveloper)
+
+
+## 📸 Screenshots
+
+Screenshots are not yet included in this repository README. Add genuine screenshots of the running project in a `screenshots/` folder and link them here so visitors can preview the actual interface.
